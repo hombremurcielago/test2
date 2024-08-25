@@ -1,0 +1,37 @@
+---
+import PhoneIcon from "./Icons/PhoneIco.astro";
+import MapIcon from "./Icons/MapIcon.astro";
+import CoinIco from "./Icons/CoinIco.astro";
+import SchoolIco from "./Icons/SchoolIco.astro";
+import SunIco from "./Icons/SunIco.astro";
+import DefinitiveIco from "./Icons/DefinitiveIco.astro";
+import WorkIco from "./Icons/WorkIco.astro"
+
+const { tipoVacante, sostenimiento, cctDondeCobra, cctDondeTrabaja, nombreCct, direccionCct, telefonoCct, turno } = Astro.props;
+---
+
+<div class="max-w-[500px] h-auto flex justify-center flex-col text-pretty bg-[#2b313c] rounded-md m-5 p-5 text-[#cfd1d2] shadow-black shadow-xl">
+  <h2 class="text-xl font-semibold mb-2 text-center">Vacancia: {tipoVacante}</h2>
+  <p><strong><DefinitiveIco class=" w-auto h-5 inline-block align-top"/> Sostenimiento:</strong> {sostenimiento}</p>
+  <p>
+    <strong><CoinIco class=" w-auto h-5 inline-block align-top"/> CCT Donde Cobra:</strong>
+    <a href={`https://escuelasmex.com/directorio/${encodeURIComponent(cctDondeCobra)}`} class="text-[#e2455a] font-bold hover:underline" target="_blank" rel="noopener noreferrer">
+      {cctDondeCobra}
+    </a>
+  </p>
+  <p>
+    <strong> <WorkIco class=" w-auto h-5 inline-block align-top"/> CCT Donde Trabaja:</strong> 
+    <a href={`https://escuelasmex.com/directorio/${encodeURIComponent(cctDondeTrabaja)}`} class="text-[#e2455a] font-bold hover:underline" target="_blank" rel="noopener noreferrer">
+      {cctDondeTrabaja}
+      </a>
+  </p>
+  <p><strong><SchoolIco class=" w-auto h-5 inline-block align-top"/> Nombre CCT:</strong> {nombreCct}</p>
+  <p>
+    <strong><MapIcon class=" w-auto h-5 inline-block align-top"/> Dirección CCT:</strong> 
+    <a href={`https://www.google.com/search?q=30DTV0298P${encodeURIComponent(direccionCct)}`} class="text-[#e2455a] font-bold hover:underline" target="_blank" rel="noopener noreferrer">
+       {direccionCct} 
+    </a>
+  </p>
+  <p><strong><PhoneIcon class=" w-auto h-5 inline-block align-top" /> Teléfono CCT:</strong> {telefonoCct}</p>
+  <p><strong><SunIco class=" w-auto h-5 inline-block align-top" /> Turno:</strong> {turno}</p>
+</div>

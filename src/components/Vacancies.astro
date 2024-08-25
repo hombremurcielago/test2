@@ -1,0 +1,26 @@
+---
+// src/pages/vacantes.astro
+
+import Card from '../components/VacancyCard.astro';
+import { vacancia } from '../data/vacanciaData.js'; // Import the data from the separate file
+
+---
+
+<main class="flex flex-row justify-center items-center flex-wrap gap-5 m-10 ">
+
+  {Object.values(vacancia.informacionPlazas).map((plaza) => (
+    <Card 
+      llavePlaza={plaza.llavePlaza}
+      sostenimiento={plaza.plazas[0].sostenimiento}
+      cctDondeCobra={plaza.plazas[0].cctDondeCobra}
+      cctDondeTrabaja={plaza.plazas[0].cctDondeTrabaja}
+      nombreCct={plaza.plazas[0].nombreCct}
+      categoria={plaza.plazas[0].categoria}
+      horas={plaza.plazas[0].horas}
+      inicioVacancia={plaza.plazas[0].inicioVacancia}
+      turno={plaza.plazas[0].turno}
+      direccionCct={plaza.plazas[0].direccionCct}
+      telefonoCct={plaza.plazas[0].telefonoCct}
+    />
+  ))}
+</main>
